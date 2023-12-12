@@ -12,7 +12,11 @@ In this example, the calibration values of these four lines are 12, 38, 15, and 
 Consider your entire calibration document. What is the sum of all of the calibration values?
 */
 
+import { useState } from "react";
+
 function DayOne () {
+  const [output, setOutput] = useState("")
+
   const calibratedNumbers = [];
 
 
@@ -22,11 +26,16 @@ function DayOne () {
 
   return (
     <form>
-      <label>
-        Name:
-        <input type="text" name="name" />
+      <label>Please input Data: 
+        <input
+          type="text" 
+          value={output}
+          onChange={(e) => setOutput(e.target.value)}
+        />
       </label>
-      <input type="submit" value="Submit" />
+      <div>
+        {output}
+      </div>
     </form>
   )
 
